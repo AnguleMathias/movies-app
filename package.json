@@ -6,7 +6,6 @@
     "email": "angulemathias3@gmail.com"
   },
   "private": true,
-
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -21,6 +20,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "ma-movies-sdk": "^1.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.0",
@@ -29,11 +29,11 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "@types/react-redux": "^7.1.33",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.96",
     "@types/react": "^18.2.78",
-    "@types/react-dom": "^18.2.25"
+    "@types/react-dom": "^18.2.25",
+    "@types/react-redux": "^7.1.33"
   },
   "eslintConfig": {
     "extends": [
