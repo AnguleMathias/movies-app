@@ -43,7 +43,13 @@ function MovieList() {
   }
 
   return (
-    <Grid container spacing={2}>
+    <Grid
+      container
+      spacing={4}
+      alignItems="center"
+      justifyContent="center"
+      style={{ paddingTop: 15 }}
+    >
       {movies.map((movie) => (
         <MovieListItem movie={movie} key={movie["#IMDB_ID"]} />
       ))}
