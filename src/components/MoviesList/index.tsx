@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { CircularProgress, Typography } from "@mui/material";
 import { Grid } from "@material-ui/core";
 
 import { AppDispatch, RootState } from "../../app/store";
@@ -16,11 +17,29 @@ function MovieList() {
   }, [dispatch]);
 
   if (loading === "pending") {
-    return <div>Loading...</div>;
+    return (
+      <Grid
+        container
+        alignItems="center"
+        justifyContent="center"
+        style={{ minHeight: "90vh" }}
+      >
+        <CircularProgress />
+      </Grid>
+    );
   }
 
   if (movies.length === 0) {
-    return <div>No movies found.</div>;
+    return (
+      <Grid
+        container
+        alignItems="center"
+        justifyContent="center"
+        style={{ minHeight: "90vh" }}
+      >
+        <Typography>No movies found</Typography>
+      </Grid>
+    );
   }
 
   return (
