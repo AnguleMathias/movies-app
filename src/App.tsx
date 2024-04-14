@@ -1,38 +1,24 @@
-import { FC, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { FC } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ThemeProvider, createTheme } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
-import { AppDispatch, RootState } from "./app/store";
-import { fetchRandomMovies } from "./app/features/movie/movieAPI";
+import Navigation from "./components/Navigation";
+import MovieList from "./components/MoviesList";
+
+const theme = createTheme();
 
 const App: FC = () => {
-  const dispatch: AppDispatch = useDispatch();
-  const movies = useSelector((state: RootState) => state.movie.entities);
-  const loading = useSelector((state: RootState) => state.movie.loading);
-
-  useEffect(() => {
-    dispatch(fetchRandomMovies());
-  }, [dispatch]);
-
-  if (loading === "pending") {
-    return <div>Loading...</div>;
-  }
-
-  if (movies.length === 0) {
-    return <div>No movies found.</div>;
-  }
-
-  console.log(movies[0]);
-
   return (
-    <div>
-      {movies.map((movie, index) => (
-        <div key={index}>
-          <h2>{movie["#TITLE"]}</h2>
-          <p>{movie["#YEAR"]}</p>
-        </div>
-      ))}
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<MovieList />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 };
 
