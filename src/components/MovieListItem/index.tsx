@@ -1,13 +1,6 @@
 import { FC } from "react";
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 import { Movie } from "../../app/features/movie/movieTypes";
 
@@ -16,44 +9,54 @@ interface MovieListItemProps {
 }
 
 const MovieListItem: FC<MovieListItemProps> = ({ movie }: { movie: Movie }) => {
+  const navigate = useNavigate();
+  // redirect to movie details page
+  const handleViewMovie = () => {
+    navigate(`/movie/${movie["#IMDB_ID"]}`);
+  };
+
   return (
     <Grid item xs={2.4} sm={2.4} md={2.4}>
       <Card
         sx={{
-          height: 750,
+          height: 700,
           width: 350,
-          transition: "0.3s",
+          transition: "0.4s",
           ":hover": {
             boxShadow:
-              "0 4px 20px 0 rgba(0,0,0,0.12), 0 9px 10px -6px rgba(0,0,0,0.20)",
+              "0 4px 20px 0 rgba(0,0,0,0.12), 5px 9px 10px 9px rgba(0,0,0,0.20)",
+            background: "#37474f",
+            color: "#fff",
+            cursor: "pointer",
           },
         }}
+        onClick={handleViewMovie}
       >
         <CardMedia
           style={{ height: 600 }}
           image={movie["#IMG_POSTER"]}
           title={movie["#TITLE"]}
         />
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant="h6"
-            component="h3"
-            style={{
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              display: "-webkit-box",
-              WebkitLineClamp: "2",
-              WebkitBoxOrient: "vertical",
-              height: "4rem",
-            }}
-          >
-            {movie["#TITLE"]}
-          </Typography>
+        <CardContent style={{ justifyContent: "center", alignItems: "center" }}>
+          <Grid container justifyContent="center" alignItems="center" gap={1}>
+            <Typography
+              gutterBottom
+              variant="body1"
+              justifyContent="center"
+              alignItems="center"
+              sx={{
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                display: "-webkit-box",
+                WebkitLineClamp: "2",
+                WebkitBoxOrient: "vertical",
+                height: "4rem",
+              }}
+            >
+              {movie["#TITLE"]}
+            </Typography>
+          </Grid>
         </CardContent>
-        <CardActions>
-          <Button variant="outlined">More</Button>
-        </CardActions>
       </Card>
     </Grid>
   );

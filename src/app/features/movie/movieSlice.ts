@@ -11,9 +11,7 @@ const initialState: MovieState = {
 const movieSlice = createSlice({
   name: "movie",
   initialState,
-  reducers: {
-    //TODO: Add synchronous actions
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchRandomMovies.pending, (state) => {

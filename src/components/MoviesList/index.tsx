@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { CircularProgress, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { Grid } from "@material-ui/core";
 
 import { AppDispatch, RootState } from "../../app/store";
 import { fetchRandomMovies } from "../../app/features/movie/movieAPI";
 import MovieListItem from "../MovieListItem";
+import Loader from "../Loader";
 
-function MovieList() {
+const MovieList = () => {
   const dispatch: AppDispatch = useDispatch();
   const movies = useSelector((state: RootState) => state.movie.entities);
   const loading = useSelector((state: RootState) => state.movie.loading);
@@ -18,14 +19,7 @@ function MovieList() {
 
   if (loading === "pending") {
     return (
-      <Grid
-        container
-        alignItems="center"
-        justifyContent="center"
-        style={{ minHeight: "90vh" }}
-      >
-        <CircularProgress />
-      </Grid>
+      <Loader />
     );
   }
 
