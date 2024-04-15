@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 import { Movie } from "../../app/features/movie/movieTypes";
 
@@ -8,9 +9,10 @@ interface MovieListItemProps {
 }
 
 const MovieListItem: FC<MovieListItemProps> = ({ movie }: { movie: Movie }) => {
+  const navigate = useNavigate();
   // redirect to movie details page
   const handleViewMovie = () => {
-    window.location.href = `/movie/${movie["#IMDB_ID"]}`;
+    navigate(`/movie/${movie["#IMDB_ID"]}`);
   };
 
   return (
