@@ -17,7 +17,7 @@ import { Typography, Alert, Grid } from "@mui/material";
 import { AppDispatch, RootState } from "../../app/store";
 import { capitalizeAfterComma } from "../../utils.index";
 import { fetchMovieDetails } from "../../app/features/movie/movieAPI";
-import { MovieDetails as MovieData } from "../../app/features/movie/movieDetailsType";
+import { MovieDetails as MovieData } from "../../app/features/types/movieDetailsType";
 import Loader from "../Loader";
 
 const StyledGrid = styled(Grid)({
@@ -143,7 +143,7 @@ const MovieDetails = () => {
                     <Typography>
                       {review.node.summary.originalText} -{" "}
                       <strong>{review.node.author.nickName}</strong> (Rating:{" "}
-                      {review.node.authorRating || 'N/A'})
+                      {review.node.authorRating || "N/A"})
                     </Typography>
                   </AccordionSummary>
                   <AccordionDetails>

@@ -11,6 +11,11 @@ export interface MovieDetailsState {
   error: null;
 }
 
+export interface MovieSearchState {
+  movies: Movie | {};
+  loading: "idle" | "pending" | "succeeded" | "failed";
+}
+
 export interface Movie {
   "#TITLE": string;
   "#YEAR": number;
