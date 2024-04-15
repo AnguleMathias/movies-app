@@ -1,4 +1,5 @@
-import { MovieTypes, ResponseTypes } from "../types/movieTypes";
+import { MovieTypes } from "../types/movieTypes";
+import { MovieDetails } from "../types/movieDetails";
 /**
  * Fetches a movie from the API
  * @param query - The movie title to search for
@@ -18,4 +19,4 @@ export declare const getRandomMovies: () => Promise<{
  * @param id - The movie ID
  * @returns an object containing the movie details or an error
  */
-export declare const getMovieDetails: (id: string) => Promise<ResponseTypes | Error>;
+export declare const getMovieDetails: (id: string) => Promise<MovieDetails | Error>;

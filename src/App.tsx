@@ -5,6 +5,8 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 import Navigation from "./components/Navigation";
 import MovieList from "./components/MoviesList";
+import MovieDetails from "./components/ViewMoviePage";
+import NotFound from "./components/NotFound";
 
 const theme = createTheme();
 
@@ -16,6 +18,8 @@ const App: FC = () => {
         <Navigation />
         <Routes>
           <Route path="/" element={<MovieList />} />
+          <Route path="/movie/:movieId" element={<MovieDetails />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </ThemeProvider>

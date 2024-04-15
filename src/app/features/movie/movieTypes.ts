@@ -1,6 +1,14 @@
+import { MovieDetails } from "./movieDetailsType";
+
 export interface MovieState {
-  entities: Movie[];
+  entities: Movie[] | [];
   loading: "idle" | "pending" | "succeeded" | "failed";
+}
+
+export interface MovieDetailsState {
+  details: MovieDetails | {};
+  loading: "idle" | "pending" | "succeeded" | "failed";
+  error: null;
 }
 
 export interface Movie {
