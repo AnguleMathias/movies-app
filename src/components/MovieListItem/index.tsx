@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-import { Movie } from "../../app/features/movie/movieTypes";
+import { Movie } from "../../app/features/types/movieTypes";
 
 interface MovieListItemProps {
   movie: Movie;

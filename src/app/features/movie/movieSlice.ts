@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { fetchRandomMovies } from "./movieAPI";
-import { MovieState } from "./movieTypes";
+import { MovieState } from "../types/movieTypes";
 
 const initialState: MovieState = {
   entities: [],

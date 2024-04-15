@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchMovieDetails } from "./movieAPI";
-import { MovieDetailsState } from "./movieTypes";
-import { MovieDetails } from "./movieDetailsType";
+import { MovieDetailsState } from "../types/movieTypes";
+import { MovieDetails } from "../types/movieDetailsType";
 
 const initialState: MovieDetailsState = {
   details: {},

@@ -2,8 +2,9 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
   getRandomMovies,
   getMovieDetails,
+  getMovie,
 } from "../../../sdk/src/movies/movieSdk";
-import { MovieDetails } from "./movieDetailsType";
+import { MovieDetails } from "../types/movieDetailsType";
 
 /**
  * Fetches random movies
@@ -41,3 +42,16 @@ export const fetchMovieDetails = createAsyncThunk<
     return rejectWithValue("Failed to fetch movie details");
   }
 });
+
+/**
+ * Searches for movies based on a query
+ * @param {string} searchTerm - The search query
+ * @returns {Promise<any[]>} - The search results
+ */
+export const searchMovies = createAsyncThunk(
+  "movies/searchMovies",
+  async (searchTerm: string) => {
+    const movies = await getMovie(searchTerm);
+    return movies;
+  }
+);
